@@ -1,0 +1,12 @@
+Source: ros-melodic-pal-carbon-collector
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin, ros-melodic-rostest
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-melodic-pal-carbon-collector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-pal-statistics-msgs, ros-melodic-rospy
+Description: Node that collects statistics from topics and sends them to carbon
