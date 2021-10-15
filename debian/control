@@ -1,0 +1,12 @@
+Source: ros-galactic-pal-statistics-msgs
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-galactic-rosidl-default-generators, ros-galactic-std-msgs, ros-galactic-ros-workspace, ros-galactic-rosidl-typesupport-fastrtps-c, ros-galactic-rosidl-typesupport-fastrtps-cpp
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-galactic-pal-statistics-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-galactic-rosidl-default-runtime, ros-galactic-std-msgs, ros-galactic-ros-workspace
+Description: Statistics msgs package
