@@ -2,10 +2,12 @@
 Changelog for package pal_statistics_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.4.1 (2020-11-11)
+2.0.0 (2021-10-15)
 ------------------
+* Remove ROS1 dependency
+* Migrate pal_statistics_msgs to ROS2
 * Change License to MIT
-  fixes #5
+  fixes `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
 * Contributors: Victor Lopez
 
 1.4.0 (2020-03-13)

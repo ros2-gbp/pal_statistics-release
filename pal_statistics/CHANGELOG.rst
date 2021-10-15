@@ -2,12 +2,26 @@
 Changelog for package pal_statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.4.1 (2020-11-11)
+2.0.0 (2021-10-15)
 ------------------
+* Comment out tests that require galactic rclpcpp API
+* Use ament_cmake_auto
+* Update package.xml
+* Add comment about ament_cmake_pal
+* Change license to BSD-3 Clause
+* Flake8 and pep257 compliance
+* Add ament dependencies
+* More formatting and header ordering
+* Apply ament_link_cmake
+* Cpplint compliance
+* Rename headers to .h and uncrustify them
+* Fix double comparisons in test
+* Reorganize code to remove boost from include files
+* Tests passing in ROS2
 * Update license on headers
-  refs #5
+  refs `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
 * Change License to MIT
-  fixes #5
+  fixes `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
 * Contributors: Victor Lopez
 
 1.4.0 (2020-03-13)

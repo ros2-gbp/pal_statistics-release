@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(pal_carbon_collector)
 
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED
+    COMPONENTS
+        pal_statistics_msgs
+)
 
 catkin_python_setup()
 

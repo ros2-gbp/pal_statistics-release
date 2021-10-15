@@ -1,121 +1,40 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5.0)
 project(pal_statistics)
 
-find_package(catkin REQUIRED COMPONENTS
-  pal_statistics_msgs
-  roscpp
-  rospy
-)
-catkin_python_setup()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-## System dependencies are found with CMake's conventions
-find_package(Boost REQUIRED COMPONENTS thread)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
 
-catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS pal_statistics_msgs roscpp
-#  DEPENDS Boost
-)
+find_package(ament_cmake_auto REQUIRED)
 
-include_directories( SYSTEM
-  ${catkin_INCLUDE_DIRS}
-  ${Boost_INCLUDE_DIRS}
-)
+# PAL Robotics stricter build flags, other developers should not worry about this
+find_package(ament_cmake_pal QUIET)
 
-include_directories(include)
+ament_auto_find_build_dependencies()
 
-## Declare a C++ library
-add_library(${PROJECT_NAME}
-  src/pal_statistics_utils.cpp
-  src/pal_statistics.cpp
-  src/pal_statistics_macros.cpp
-)
+ament_auto_add_library(${PROJECT_NAME} SHARED 
+	src/pal_statistics_utils.cpp src/pal_statistics.cpp
+	src/pal_statistics_macros.cpp src/registration_list.cpp)
 
-## Specify libraries to link a library or executable target against
- target_link_libraries(${PROJECT_NAME}
-   ${catkin_LIBRARIES}
-   ${Boost_LIBRARIES}
- )
+# ##############################################################################
+# Testing ##
+# ##############################################################################
 
-## Add cmake target dependencies of the library
-## as an example, code may need to be generated before libraries
-## either from message generation or dynamic reconfigure
-add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+if(BUILD_TESTING)
+  find_package(ament_cmake_gtest)
+  find_package(ament_cmake_gmock)
+  find_package(ament_lint_auto REQUIRED)
 
-## Declare a C++ executable
-## With catkin_make all packages are built within a single CMake context
-## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/pal_statistics_node.cpp)
+  ament_lint_auto_find_test_dependencies()
+  ament_add_gtest(buffer-test test/gtest_buffer.cpp)
+  target_link_libraries(buffer-test ${PROJECT_NAME})
 
-## Rename C++ executable without prefix
-## The above recommended prefix causes long target names, the following renames the
-## target back to the shorter version for ease of user use
-## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
-# set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
+  #  ament_add_gmock(pal_statistics-test test/gtest_pal_statistics.cpp)
+  #  target_include_directories(
+  #    pal_statistics-test PRIVATE src) # dirty hack for a forward declaration
+  #  target_link_libraries(pal_statistics-test ${PROJECT_NAME})
 
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+  # TODO v-lopez python migration add_rostest(test/pal_statistics_py.test)
+endif()
 
-
-#############
-## Install ##
-#############
-
-# all install targets should use catkin DESTINATION variables
-# See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
-
-## Mark executable scripts (Python etc.) for installation
-## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark executables and/or libraries for installation
-install(TARGETS ${PROJECT_NAME}
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-## Mark cpp header files for installation
-install(DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h"
-)
-
-## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
-
-#############
-## Testing ##
-#############
-
-if (CATKIN_ENABLE_TESTING)
-    find_package(rostest REQUIRED)
-    catkin_add_gtest(buffer-test test/gtest_buffer.cpp)
-    target_link_libraries(buffer-test
-                                ${PROJECT_NAME}
-                                ${catkin_LIBRARIES})
-
-    add_rostest_gmock(pal_statistics-test test/pal_statistics.test test/gtest_pal_statistics.cpp)
-    target_link_libraries(pal_statistics-test
-                                ${PROJECT_NAME}
-                                ${catkin_LIBRARIES})
-
-    add_rostest(test/pal_statistics_py.test)
-endif(CATKIN_ENABLE_TESTING)
-## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_pal_statistics.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
-
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)
+ament_auto_package()

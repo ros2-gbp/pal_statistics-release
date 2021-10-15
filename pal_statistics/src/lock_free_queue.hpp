@@ -27,30 +27,50 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 
-#include "pal_statistics/pal_statistics_macros.hpp"
+#ifndef LOCK_FREE_QUEUE_HPP_
+#define LOCK_FREE_QUEUE_HPP_
 
-#include <map>
-#include <memory>
-#include <string>
+#include "boost/lockfree/queue.hpp"
 
 namespace pal_statistics
 {
-std::shared_ptr<StatisticsRegistry> getRegistry(
-  const std::shared_ptr<rclcpp::Node> & node,
-  const std::string & topic)
+/**
+ * @brief Simple wrapper around boost lockfree queue to keep track of the reserved memory
+ *        Boost's implementation of reserve always increases the capacity by the specified
+ * size
+ */
+template<typename T>
+class LockFreeQueue : private boost::lockfree::queue<T>
 {
-  typedef std::map<std::string, std::shared_ptr<StatisticsRegistry>> RegistryMap;
-  static RegistryMap registries;
+public:
+  typedef boost::lockfree::queue<T> BaseType;
 
-  RegistryMap::const_iterator cit = registries.find(node->get_effective_namespace() + topic);
-
-  if (cit == registries.end()) {
-    std::shared_ptr<StatisticsRegistry> ptr =
-      std::make_shared<StatisticsRegistry>(node, topic);
-    registries[node->get_effective_namespace() + topic] = ptr;
-    return ptr;
-  } else {
-    return cit->second;
+  LockFreeQueue()
+  : BaseType(0), reserved_size(0)
+  {
   }
-}
+  void set_capacity(typename BaseType::size_type n)
+  {
+    int64_t missing_size = n - reserved_size;
+    if (missing_size > 0) {
+      BaseType::reserve(missing_size);
+      reserved_size += missing_size;
+    }
+  }
+
+  bool bounded_push(T const & t)
+  {
+    return BaseType::bounded_push(t);
+  }
+
+  template<typename U>
+  bool pop(U & ret)
+  {
+    return BaseType::pop(ret);
+  }
+
+private:
+  std::atomic<size_t> reserved_size;
+};
 }  // namespace pal_statistics
+#endif  // LOCK_FREE_QUEUE_HPP_
