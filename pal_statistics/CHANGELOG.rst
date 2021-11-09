@@ -2,6 +2,11 @@
 Changelog for package pal_statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.1 (2021-11-09)
+------------------
+* Fix cmake lint
+* Contributors: Victor Lopez
+
 2.0.0 (2021-10-15)
 ------------------
 * Comment out tests that require galactic rclpcpp API
