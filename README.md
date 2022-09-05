@@ -1,3 +1,28 @@
+## pal_statistics (humble) - 2.1.2-1
+
+The packages in the `pal_statistics` repository were released into the `humble` distro by running `/usr/bin/bloom-release --new-track --rosdistro humble --track humble pal_statistics` on `Mon, 05 Sep 2022 14:49:42 -0000`
+
+These packages were released:
+- `pal_statistics`
+- `pal_statistics_msgs`
+
+Version of package(s) in repository `pal_statistics`:
+
+- upstream repository: https://github.com/pal-robotics/pal_statistics.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `2.1.2-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## pal_statistics (foxy) - 2.0.1-2
 
 The packages in the `pal_statistics` repository were released into the `foxy` distro by running `/usr/bin/bloom-release --rosdistro foxy --track foxy pal_statistics` on `Mon, 05 Sep 2022 13:33:12 -0000`
