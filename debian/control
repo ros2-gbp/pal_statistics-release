@@ -1,0 +1,12 @@
+Source: ros-galactic-pal-statistics
+Section: misc
+Priority: optional
+Maintainer: victor <victor.lopez@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-galactic-ament-cmake-auto, ros-galactic-ament-cmake-gmock <!nocheck>, ros-galactic-ament-cmake-gtest <!nocheck>, ros-galactic-ament-lint-auto <!nocheck>, ros-galactic-ament-lint-common <!nocheck>, ros-galactic-pal-statistics-msgs, ros-galactic-rclcpp, ros-galactic-rclpy, ros-galactic-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-galactic-pal-statistics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-galactic-pal-statistics-msgs, ros-galactic-rclcpp, ros-galactic-rclpy, ros-galactic-ros-workspace
+Description: The pal_statistics package
