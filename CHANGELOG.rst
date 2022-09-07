@@ -2,6 +2,9 @@
 Changelog for package pal_statistics_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.1.3 (2022-09-07)
+------------------
+
 2.1.2 (2022-09-05)
 ------------------
 * Merge branch 'ament_cmake_dependency' into 'galactic-devel'
