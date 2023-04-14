@@ -2,6 +2,23 @@
 Changelog for package pal_statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.1.5 (2023-04-14)
+------------------
+* miscellaneous enhancements
+* refactor gtest_pal_statistics to test also lifecycle nodes
+* add support for lifecycle nodes
+* add namespace for StaticCircularBuffer
+* Contributors: Noel Jimenez
+
+2.1.4 (2023-03-02)
+------------------
+* Merge branch 'fix_warns' into 'humble-devel'
+  Fix warns
+  See merge request qa/pal_statistics!28
+* change types for comparisons
+* reorder variable initialization
+* Contributors: Jordan Palacios, Noel Jimenez
+
 2.1.3 (2022-09-07)
 ------------------
 * Merge branch 'fix_linter' into 'humble-devel'
