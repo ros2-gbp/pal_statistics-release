@@ -2,42 +2,22 @@
 Changelog for package pal_statistics_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.1.5 (2023-04-14)
-------------------
-* miscellaneous enhancements
-* Contributors: Noel Jimenez
-
-2.1.4 (2023-03-02)
+1.5.1 (2023-07-19)
 ------------------
 
-2.1.3 (2022-09-07)
+1.5.0 (2021-08-23)
 ------------------
 
-2.1.2 (2022-09-05)
-------------------
-* Merge branch 'ament_cmake_dependency' into 'galactic-devel'
-  Add missing dependency ament_cmake
-  See merge request qa/pal_statistics!25
-* add missing dependency ament_cmake
-* Merge pull request #11 from v-lopez/galactic-devel
-  Fix missing ament_lint_common dependency
-* Fix missing ament_lint_common dependency
-* Contributors: Jordan Palacios, Noel Jimenez, Victor Lopez
-
-2.1.1 (2021-11-09)
-------------------
-* Fix missing ament_lint_auto dependency
-* Contributors: Victor Lopez
-
-2.1.0 (2021-10-15)
+1.4.3 (2021-03-19)
 ------------------
 
-2.0.0 (2021-10-15)
+1.4.2 (2021-01-12)
 ------------------
-* Remove ROS1 dependency
-* Migrate pal_statistics_msgs to ROS2
+
+1.4.1 (2020-11-11)
+------------------
 * Change License to MIT
-  fixes `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
+  fixes #5
 * Contributors: Victor Lopez
 
 1.4.0 (2020-03-13)

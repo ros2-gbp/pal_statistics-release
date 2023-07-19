@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(pal_carbon_collector)
 
-find_package(catkin REQUIRED
-    COMPONENTS
-        pal_statistics_msgs
-)
+find_package(catkin REQUIRED)
 
 catkin_python_setup()
 
@@ -27,17 +24,18 @@ install(PROGRAMS
 foreach(dir config launch)
     install(DIRECTORY ${dir}/
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
-endforeach()
+endforeach(dir)
 
 
 #############
 ## Testing ##
 #############
 
-if(CATKIN_ENABLE_TESTING)
+if (CATKIN_ENABLE_TESTING)
 
     find_package(rostest REQUIRED)
 
-    add_rostest(test/carbon_collector.test)
+    # Disabled test since graphitesend is not released on ROS
+    #    add_rostest(test/carbon_collector.test)
 
 endif()

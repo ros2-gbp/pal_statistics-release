@@ -1,5 +1,5 @@
 # header
-std_msgs/Header header
+Header header
 
 # Statistics names
 string[] names

@@ -2,64 +2,48 @@
 Changelog for package pal_statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.1.5 (2023-04-14)
+1.5.1 (2023-07-19)
 ------------------
-* miscellaneous enhancements
-* refactor gtest_pal_statistics to test also lifecycle nodes
-* add support for lifecycle nodes
-* add namespace for StaticCircularBuffer
-* Contributors: Noel Jimenez
+* drop c++11 compiler flag
+  broke on newer systems as log4cxx requires c++17 for quite some time now.
+* Contributors: v4hn
 
-2.1.4 (2023-03-02)
+1.5.0 (2021-08-23)
 ------------------
-* Merge branch 'fix_warns' into 'humble-devel'
-  Fix warns
-  See merge request qa/pal_statistics!28
-* change types for comparisons
-* reorder variable initialization
-* Contributors: Jordan Palacios, Noel Jimenez
+* Merge branch 'python3' into 'erbium-devel'
+  Make python code compatible with python2/3
+  See merge request qa/pal_statistics!23
+* futurize'd python code
+* Contributors: Jordan Palacios
 
-2.1.3 (2022-09-07)
+1.4.3 (2021-03-19)
 ------------------
-* Merge branch 'fix_linter' into 'humble-devel'
-  fix linter
-  See merge request qa/pal_statistics!27
-* fix linter
-* Contributors: Jordan Palacios, Noel Jimenez
-
-2.1.2 (2022-09-05)
-------------------
-
-2.1.1 (2021-11-09)
-------------------
-
-2.1.0 (2021-10-15)
-------------------
-* Revert "Comment out tests that require galactic rclpcpp API"
-  This reverts commit 6642f6a743e5d5be210f7e59191153746b296866.
-* Fix cmake lint
+* Fix spurious test failure
 * Contributors: Victor Lopez
 
-2.0.0 (2021-10-15)
+1.4.2 (2021-01-12)
 ------------------
-* Comment out tests that require galactic rclpcpp API
-* Use ament_cmake_auto
-* Update package.xml
-* Add comment about ament_cmake_pal
-* Change license to BSD-3 Clause
-* Flake8 and pep257 compliance
-* Add ament dependencies
-* More formatting and header ordering
-* Apply ament_link_cmake
-* Cpplint compliance
-* Rename headers to .h and uncrustify them
-* Fix double comparisons in test
-* Reorganize code to remove boost from include files
-* Tests passing in ROS2
+* Merge branch 'data_signal' into 'erbium-devel'
+  Data signal
+  See merge request qa/pal_statistics!22
+* Add documentation + tests for extact_rosbag_signals
+* Merge branch 'python_more_tests' into 'erbium-devel'
+  add more tests based on lists and dictionary data for the python API
+  See merge request qa/pal_statistics!21
+* Get data signal from introspection data rosbag
+  Rm *.user
+  Get data signal from introspection data rosbag
+  Rm *.user
+  Mv DataSignal to a separate library
+* add more tests based on lists and dictionary data for the python API
+* Contributors: Adria Roig, Sai Kishor Kothakota, victor
+
+1.4.1 (2020-11-11)
+------------------
 * Update license on headers
-  refs `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
+  refs #5
 * Change License to MIT
-  fixes `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
+  fixes #5
 * Contributors: Victor Lopez
 
 1.4.0 (2020-03-13)
