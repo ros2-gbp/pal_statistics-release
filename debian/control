@@ -1,0 +1,12 @@
+Source: ros-noetic-pal-carbon-collector
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-rostest <!nocheck>
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-pal-carbon-collector
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-pal-statistics-msgs, ros-noetic-rospy
+Description: Node that collects statistics from topics and sends them to carbon
