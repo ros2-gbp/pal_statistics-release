@@ -2,28 +2,6 @@
 Changelog for package pal_carbon_collector
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.5.1 (2023-07-19)
-------------------
-
-1.5.0 (2021-08-23)
-------------------
-
-1.4.3 (2021-03-19)
-------------------
-* Disable test
-* Contributors: Victor Lopez
-
-1.4.2 (2021-01-12)
-------------------
-
-1.4.1 (2020-11-11)
-------------------
-* Remove pal_statistics_msgs from CMakeLists
-* Comment out graphitesend dependency
-* Change License to MIT
-  fixes #5
-* Contributors: Victor Lopez
-
 1.4.0 (2020-03-13)
 ------------------
 

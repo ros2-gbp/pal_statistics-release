@@ -2,48 +2,138 @@
 Changelog for package pal_statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.5.1 (2023-07-19)
+2.2.3 (2023-12-18)
 ------------------
-* drop c++11 compiler flag
-  broke on newer systems as log4cxx requires c++17 for quite some time now.
-* Contributors: v4hn
+* Merge branch 'fix/flaky_macro_asyncPublisher' into 'humble-devel'
+  Fix/flaky macro async publisher
+  See merge request qa/pal_statistics!36
+* Improve test failure messages
+* Make gtest failure messages more informative in aync tests
+  For instance from:
+  /home/user/exchange/roses/alum/pal_statistics_ws/src/pal_statistics/pal_statistics/test/gtest_pal_statistics.cpp:580: Failure
+  Value of: waitFor( std::bind( stats_published_for, "macro_var1", "clp-failure", "macro_var1_bk", "macro_var2", "&var2\_"))
+  Actual: false
+  Expected: true
+  to:
+  /home/user/exchange/roses/alum/pal_statistics_ws/src/pal_statistics/pal_statistics/test/gtest_pal_statistics.cpp:673: Failure
+  After 300 msValue of: get_variables
+  Expected: has 9 elements and there exists some permutation of elements such that:
+  - element #0 is equal to "macro_var1", and
+  - element #1 is equal to "clp-failure", and
+  - element #2 is equal to "macro_var1_bk", and
+  - element #3 is equal to "macro_var2", and
+  - element #4 is equal to "&var2\_", and
+  - element #5 is equal to "topic_stats.pal_statistics_node_test/pal_statistics.publish_async_attempts", and
+  - element #6 is equal to "topic_stats.pal_statistics_node_test/pal_statistics.publish_async_failures", and
+  - element #7 is equal to "topic_stats.pal_statistics_node_test/pal_statistics.publish_buffer_full_errors", and
+  - element #8 is equal to "topic_stats.pal_statistics_node_test/pal_statistics.last_async_pub_duration"
+  Actual: { "topic_stats.pal_statistics_node_test/pal_statistics.publish_async_attempts", "topic_stats.pal_statistics_node_test/pal_statistics.publish_async_failures", "topic_stats.pal_statistics_node_test/al_statistics.publish_buffer_full_errors", "topic_stats.pal_statistics_node_test/pal_statistics.last_async_pub_duration", "macro_var1", "macro_var1_bk", "macro_var2", "&var2\_" }, which has 8 elements
+* Create helpers for better failure messages in async tests
+* Fix time units in messages
+* Fix c++17 already enforced
+* Make tests exit when requested
+* Clean up unused functions
+* macroTest: prevent some flakiness
+* asyncPublisherTest: prevent some flakiness
+* Contributors: Carles Lopez Parera, Jordan Palacios
 
-1.5.0 (2021-08-23)
+2.2.2 (2023-11-14)
 ------------------
-* Merge branch 'python3' into 'erbium-devel'
-  Make python code compatible with python2/3
-  See merge request qa/pal_statistics!23
-* futurize'd python code
-* Contributors: Jordan Palacios
+* Add website tag
+* Contributors: Noel Jimenez
 
-1.4.3 (2021-03-19)
+2.2.1 (2023-11-14)
 ------------------
-* Fix spurious test failure
+* Merge branch 'fix/flaky_chaos_test' into 'humble-devel'
+  Fix flakiness in chaos tests
+  See merge request qa/pal_statistics!34
+* Fix flakiness in chaos tests
+* Contributors: Carles Lopez Parera, Jordan Palacios
+
+2.2.0 (2023-10-19)
+------------------
+* Merge branch 'fix/crash_when_start_publish_called_twice_for_same_topic' into 'humble-devel'
+  Fix: prevent crash when publisher thread is recreated
+  See merge request qa/pal_statistics!33
+* Use make_shared as per CR
+* Test statistics publish thread can be called multiple times
+* Fix: interrupt_thread flag could stay true forever
+  This hinders the execution of the publisher thread, making
+  it exit prematurely.
+  For instance, in case joinPublisherThread() is called when no
+  publisher_thread\_ is still ready:
+  1. startPublishThread()
+  1.1. joinPublisherThread()
+  1.1.1. interrupt_thread\_ set to true
+  1.1.2. publisher_thread\_ is null, no further actions
+  1.2. new thread created for publisherThreadCycle()
+  2. In publisherThreadCycle, interrupt_thread\_ is true
+  2.1. thread finishes
+* Fix use proper event to interrupt the publisher thread
+* Fix: prevent crash when publisher thread is recreated
+  publisher thread was destroyed before being joined causing
+  the termination of the process
+  See: https://en.cppreference.com/w/cpp/thread/thread/%7Ethread
+* Contributors: Carles Lopez Parera, Jordan Palacios
+
+2.1.5 (2023-04-14)
+------------------
+* miscellaneous enhancements
+* refactor gtest_pal_statistics to test also lifecycle nodes
+* add support for lifecycle nodes
+* add namespace for StaticCircularBuffer
+* Contributors: Noel Jimenez
+
+2.1.4 (2023-03-02)
+------------------
+* Merge branch 'fix_warns' into 'humble-devel'
+  Fix warns
+  See merge request qa/pal_statistics!28
+* change types for comparisons
+* reorder variable initialization
+* Contributors: Jordan Palacios, Noel Jimenez
+
+2.1.3 (2022-09-07)
+------------------
+* Merge branch 'fix_linter' into 'humble-devel'
+  fix linter
+  See merge request qa/pal_statistics!27
+* fix linter
+* Contributors: Jordan Palacios, Noel Jimenez
+
+2.1.2 (2022-09-05)
+------------------
+
+2.1.1 (2021-11-09)
+------------------
+
+2.1.0 (2021-10-15)
+------------------
+* Revert "Comment out tests that require galactic rclpcpp API"
+  This reverts commit 6642f6a743e5d5be210f7e59191153746b296866.
+* Fix cmake lint
 * Contributors: Victor Lopez
 
-1.4.2 (2021-01-12)
+2.0.0 (2021-10-15)
 ------------------
-* Merge branch 'data_signal' into 'erbium-devel'
-  Data signal
-  See merge request qa/pal_statistics!22
-* Add documentation + tests for extact_rosbag_signals
-* Merge branch 'python_more_tests' into 'erbium-devel'
-  add more tests based on lists and dictionary data for the python API
-  See merge request qa/pal_statistics!21
-* Get data signal from introspection data rosbag
-  Rm *.user
-  Get data signal from introspection data rosbag
-  Rm *.user
-  Mv DataSignal to a separate library
-* add more tests based on lists and dictionary data for the python API
-* Contributors: Adria Roig, Sai Kishor Kothakota, victor
-
-1.4.1 (2020-11-11)
-------------------
+* Comment out tests that require galactic rclpcpp API
+* Use ament_cmake_auto
+* Update package.xml
+* Add comment about ament_cmake_pal
+* Change license to BSD-3 Clause
+* Flake8 and pep257 compliance
+* Add ament dependencies
+* More formatting and header ordering
+* Apply ament_link_cmake
+* Cpplint compliance
+* Rename headers to .h and uncrustify them
+* Fix double comparisons in test
+* Reorganize code to remove boost from include files
+* Tests passing in ROS2
 * Update license on headers
-  refs #5
+  refs `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
 * Change License to MIT
-  fixes #5
+  fixes `#5 <https://github.com/pal-robotics/pal_statistics/issues/5>`_
 * Contributors: Victor Lopez
 
 1.4.0 (2020-03-13)
