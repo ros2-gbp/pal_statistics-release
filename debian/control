@@ -1,0 +1,12 @@
+Source: ros-rolling-pal-statistics
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-rolling-ament-cmake-auto, ros-rolling-ament-cmake-gmock <!nocheck>, ros-rolling-ament-cmake-gtest <!nocheck>, ros-rolling-ament-lint-auto <!nocheck>, ros-rolling-ament-lint-common <!nocheck>, ros-rolling-pal-statistics-msgs, ros-rolling-rclcpp, ros-rolling-rclcpp-lifecycle, ros-rolling-rclpy, ros-rolling-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-rolling-pal-statistics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-rolling-pal-statistics-msgs, ros-rolling-rclcpp, ros-rolling-rclcpp-lifecycle, ros-rolling-rclpy, ros-rolling-ros-workspace
+Description: The pal_statistics package

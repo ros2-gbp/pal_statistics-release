@@ -1,0 +1,280 @@
+ros-rolling-pal-statistics (2.1.5-2noble) noble; urgency=high
+
+  * miscellaneous enhancements
+  * refactor gtest_pal_statistics to test also lifecycle nodes
+  * add support for lifecycle nodes
+  * add namespace for StaticCircularBuffer
+  * Contributors: Noel Jimenez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Fri, 14 Apr 2023 00:00:00 -0000
+
+ros-rolling-pal-statistics (2.1.4-2noble) noble; urgency=high
+
+  * Merge branch 'fix_warns' into 'humble-devel'
+    Fix warns
+    See merge request qa/pal_statistics!28
+  * change types for comparisons
+  * reorder variable initialization
+  * Contributors: Jordan Palacios, Noel Jimenez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Thu, 02 Mar 2023 00:00:00 -0000
+
+ros-rolling-pal-statistics (2.1.3-2noble) noble; urgency=high
+
+  * Merge branch 'fix_linter' into 'humble-devel'
+    fix linter
+    See merge request qa/pal_statistics!27
+  * fix linter
+  * Contributors: Jordan Palacios, Noel Jimenez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Wed, 07 Sep 2022 00:00:00 -0000
+
+ros-rolling-pal-statistics (2.1.2-2noble) noble; urgency=high
+
+
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Mon, 05 Sep 2022 00:00:00 -0000
+
+ros-rolling-pal-statistics (2.1.1-2noble) noble; urgency=high
+
+
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Tue, 09 Nov 2021 00:00:00 -0000
+
+ros-rolling-pal-statistics (2.1.0-2noble) noble; urgency=high
+
+  * Revert "Comment out tests that require galactic rclpcpp API"
+    This reverts commit 6642f6a743e5d5be210f7e59191153746b296866.
+  * Fix cmake lint
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Fri, 15 Oct 2021 00:00:00 -0000
+
+ros-rolling-pal-statistics (2.0.0-2noble) noble; urgency=high
+
+  * Comment out tests that require galactic rclpcpp API
+  * Use ament_cmake_auto
+  * Update package.xml
+  * Add comment about ament_cmake_pal
+  * Change license to BSD-3 Clause
+  * Flake8 and pep257 compliance
+  * Add ament dependencies
+  * More formatting and header ordering
+  * Apply ament_link_cmake
+  * Cpplint compliance
+  * Rename headers to .h and uncrustify them
+  * Fix double comparisons in test
+  * Reorganize code to remove boost from include files
+  * Tests passing in ROS2
+  * Update license on headers
+    refs #5 <https://github.com/pal-robotics/pal_statistics/issues/5>
+  * Change License to MIT
+    fixes #5 <https://github.com/pal-robotics/pal_statistics/issues/5>
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Fri, 15 Oct 2021 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.4.0-2noble) noble; urgency=high
+
+  * Merge branch 'use-atomic-bool' into 'erbium-devel'
+    Use atomic bool, because we need atomic operation
+    See merge request qa/pal_statistics!18
+  * Use atomic bool, because we need atomic operation
+  * Contributors: Victor Lopez, victor
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Fri, 13 Mar 2020 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.3.1-2noble) noble; urgency=high
+
+  * Fix shadow variable warning
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Wed, 28 Aug 2019 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.3.0-2noble) noble; urgency=high
+
+  * Merge branch 'async-optimizations' into 'erbium-devel'
+    Optimize async update when everything is enabled
+    See merge request qa/pal_statistics!17
+  * Smarter clear and resize of vectors when all enabled
+  * Optimize async update when everything is enabled
+  * Add LGPL3 version text
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Mon, 12 Aug 2019 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.2.1-2noble) noble; urgency=high
+
+  * Fix stamp of full messages
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Thu, 18 Apr 2019 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.2.0-2noble) noble; urgency=high
+
+  * Merge branch 'optimized-msg' into 'erbium-devel'
+    Optimized msg
+    See merge request qa/pal_statistics!15
+  * Update python api to new msgs
+  * Rename full statistics topic
+  * Add new messages
+  * Change internal structure from vector of pairs to pair of vectors
+  * Add missing add_dependencies
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Tue, 16 Apr 2019 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.1.1-2noble) noble; urgency=high
+
+  * Merge branch 'correct-stamp' into 'erbium-devel'
+    Correct stamp
+    See merge request qa/pal_statistics!14
+  * Add macros with variable argument count
+  * Set time stamp from main thread
+  * Fix maintainer
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Wed, 19 Dec 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.1.0-2noble) noble; urgency=high
+
+  * Merge branch 'fix-test' into 'erbium-devel'
+    Fix spurious test failure when buffer was filled
+    See merge request qa/pal_statistics!12
+  * Fix spurious test failure when buffer was filled
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Mon, 29 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.8-2noble) noble; urgency=high
+
+  * Fix some issues with copyable object that shouldn't be
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Thu, 25 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.7-2noble) noble; urgency=high
+
+  * Change Sleep to WallSleep
+    When sim time stops being published. The thread can get stuck and never
+    end.
+  * Fix unitialized variable
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Thu, 25 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.6-2noble) noble; urgency=high
+
+  * Merge branch 'improve-constness' into 'erbium-devel'
+    Change namespace to pal_statistics and and const to double *
+    Closes #5
+    See merge request qa/pal_statistics!11
+  * Add tests for registration modification between pubAsync and publishing
+  * Change namespace to pal_statistics and and const to double *
+    Fixes https://gitlab/qa/pal_statistics/issues/5
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Wed, 24 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.5-2noble) noble; urgency=high
+
+  * Fix bug when changing registrations and publsihing before a pubAsync
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Wed, 24 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.4-2noble) noble; urgency=high
+
+  * Merge branch 'auto-start-thread' into 'erbium-devel'
+    Auto start thread and use steady clock for time diff
+    See merge request qa/pal_statistics!10
+  * Auto start thread and use steady clock for time diff
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Tue, 23 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.3-2noble) noble; urgency=high
+
+  * Merge branch 'add-extendable-registration' into 'erbium-devel'
+    Add the option to customize registration
+    See merge request qa/pal_statistics!9
+  * Add the option to customize registration
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Tue, 23 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.2-2noble) noble; urgency=high
+
+  * Increase sleep time to reduce cpu load
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Mon, 22 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.1-2noble) noble; urgency=high
+
+  * Merge branch 'add-enable' into 'erbium-devel'
+    Add enable
+    See merge request qa/pal_statistics!8
+  * Fix RT loss due to condition_variable, extend tests
+  * Reenable stressAsync test
+  * Fix publish() not publishing updated data
+  * Add buffer to last_values_
+  * Improve const-correctness of methods
+  * Extend macroTest
+  * Add unregister variable macro and use constexpr
+  * Restructure mutex and other optimizations
+  * Add debug metrics
+  * Use boost variant in VariableHolder
+  * Remove nodehandle from buffer test
+  * Add enable/disable
+  * Add debuginfo of messages lost and set buffer size to 10
+  * Add message queue buffer
+  * Contributors: Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Mon, 22 Oct 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (1.0.0-2noble) noble; urgency=high
+
+  * Merge branch 'python-api' into 'erbium-devel'
+    First version of Python API
+    See merge request qa/pal_statistics!6
+  * First version of Python API
+  * Contributors: Jordan Palacios, Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Thu, 20 Sep 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (0.0.3-2noble) noble; urgency=high
+
+  * Fix copyright notice on test
+  * Acquire mutex when creating publisher thread
+  * Disable logs for RT safety
+  * Merge branch 'macros-in-lib' into 'erbium-devel'
+    Put macro static registry on a lib
+    See merge request qa/pal_statistics!5
+  * Add namespace to registry statistics
+  * Put macro static registry on a lib
+  * Contributors: Jordan Palacios, Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Wed, 25 Jul 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (0.0.2-2noble) noble; urgency=high
+
+  * Merge branch 'add-single-publish' into 'erbium-devel'
+    Add publishStatistic function
+    See merge request qa/pal_statistics!3
+  * Add registerFunction and publishCustomStatistics
+  * Add namespace to getRegistry
+  * Add publishStatistic function
+  * Updated license
+  * Moved files to their own package directory
+  * Contributors: Jordan Palacios, Victor Lopez
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Wed, 04 Jul 2018 00:00:00 -0000
+
+ros-rolling-pal-statistics (0.0.1-2noble) noble; urgency=high
+
+
+
+ -- Jordan Palacios <jordan.palacios@pal-robotics.com>  Thu, 21 Jun 2018 00:00:00 -0000
+
+
