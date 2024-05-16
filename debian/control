@@ -1,0 +1,12 @@
+Source: ros-humble-pal-statistics
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-humble-ament-cmake-auto, ros-humble-ament-cmake-gmock <!nocheck>, ros-humble-ament-cmake-gtest <!nocheck>, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-pal-statistics-msgs, ros-humble-rclcpp, ros-humble-rclcpp-lifecycle, ros-humble-rclpy, ros-humble-ros-workspace
+Homepage: https://github.com/pal-robotics/pal_statistics
+Standards-Version: 3.9.2
+
+Package: ros-humble-pal-statistics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-humble-pal-statistics-msgs, ros-humble-rclcpp, ros-humble-rclcpp-lifecycle, ros-humble-rclpy, ros-humble-ros-workspace
+Description: The pal_statistics package
