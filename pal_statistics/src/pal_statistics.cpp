@@ -60,18 +60,17 @@ StatisticsRegistry::StatisticsRegistry(
   registration_list_(new RegistrationList(logger_, clock_)),
   enabled_ids_(new LockFreeQueue<EnabledId>())
 {
-  pub_ = rclcpp::create_publisher<pal_statistics_msgs::msg::Statistics>(
-    parameters_interface, topics_interface, topic + "/full", rclcpp::QoS(
-      rclcpp::KeepAll()));
+  rclcpp::QoS latch_qos{rclcpp::KeepAll()};
+  latch_qos.reliable();
+  latch_qos.transient_local();  // latch
 
-  rclcpp::QoS names_qos{rclcpp::KeepAll()};
-  names_qos.reliable();
-  names_qos.transient_local();  // latch
+  pub_ = rclcpp::create_publisher<pal_statistics_msgs::msg::Statistics>(
+    parameters_interface, topics_interface, topic + "/full", latch_qos);
 
   pub_names_ = rclcpp::create_publisher<pal_statistics_msgs::msg::StatisticsNames>(
-    parameters_interface, topics_interface, topic + "/names", names_qos);
+    parameters_interface, topics_interface, topic + "/names", latch_qos);
   pub_values_ = rclcpp::create_publisher<pal_statistics_msgs::msg::StatisticsValues>(
-    parameters_interface, topics_interface, topic + "/values", rclcpp::QoS(rclcpp::KeepAll()));
+    parameters_interface, topics_interface, topic + "/values", latch_qos);
 
   publish_async_attempts_ = 0;
   publish_async_failures_ = 0;
@@ -228,6 +227,7 @@ IdType StatisticsRegistry::registerInternal(
     std::unique_lock<std::mutex> data_lock(data_mutex_);
     id = registration_list_->registerVariable(name, std::move(variable), enabled);
     enabled_ids_->set_capacity(registration_list_->size());
+    setEnabledmpl(id, enabled);
   }
 
   if (bookkeeping) {
@@ -334,22 +334,26 @@ void StatisticsRegistry::publisherThreadCycle()
 {
   rclcpp::WallRate rate(2000);
   while (rclcpp::ok() && !interrupt_thread_) {
-    while (!is_data_ready_ && !interrupt_thread_) {
-      rate.sleep();
+    try {
+      while (!is_data_ready_ && !interrupt_thread_) {
+        rate.sleep();
+      }
+
+      std::unique_lock<std::mutex> data_lock(data_mutex_);
+
+      while (registration_list_->hasPendingData()) {
+        bool minor_changes = updateMsg(names_msg_, values_msg_, true);
+
+        std::unique_lock<std::mutex> pub_lock(pub_mutex_);
+        data_lock.unlock();
+        doPublish(!minor_changes);
+        pub_lock.unlock();
+        data_lock.lock();
+      }
+      is_data_ready_ = false;
+    } catch (const std::exception & e) {
+      RCLCPP_ERROR(getLogger(), "Exception in publisher thread: %s!. Aborting!", e.what());
     }
-
-    std::unique_lock<std::mutex> data_lock(data_mutex_);
-
-    while (registration_list_->hasPendingData()) {
-      bool minor_changes = updateMsg(names_msg_, values_msg_, true);
-
-      std::unique_lock<std::mutex> pub_lock(pub_mutex_);
-      data_lock.unlock();
-      doPublish(!minor_changes);
-      pub_lock.unlock();
-      data_lock.lock();
-    }
-    is_data_ready_ = false;
   }
 }
 
