@@ -1,3 +1,32 @@
+## pal_statistics (humble) - 2.6.1-1
+
+The packages in the `pal_statistics` repository were released into the `humble` distro by running `/usr/bin/bloom-release --track humble --rosdistro humble pal_statistics -y` on `Thu, 30 Jan 2025 09:39:44 -0000`
+
+These packages were released:
+- `pal_statistics`
+- `pal_statistics_msgs`
+
+These packages were explicitly ignored:
+- `pal_carbon_collector`
+- `pal_statsd_collector`
+
+Version of package(s) in repository `pal_statistics`:
+
+- upstream repository: https://github.com/pal-robotics/pal_statistics.git
+- release repository: https://github.com/ros2-gbp/pal_statistics-release.git
+- rosdistro version: `2.6.0-1`
+- old version: `2.6.0-1`
+- new version: `2.6.1-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## pal_statistics (humble) - 2.6.0-1
 
 The packages in the `pal_statistics` repository were released into the `humble` distro by running `/usr/bin/bloom-release --track humble --rosdistro humble pal_statistics -y` on `Thu, 05 Dec 2024 15:05:19 -0000`
