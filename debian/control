@@ -1,0 +1,12 @@
+Source: ros-kilted-pal-statistics
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-dev, ros-kilted-ament-cmake-auto, ros-kilted-ament-cmake-gmock <!nocheck>, ros-kilted-ament-cmake-gtest <!nocheck>, ros-kilted-ament-cmake-pytest <!nocheck>, ros-kilted-ament-cmake-python, ros-kilted-ament-lint-auto <!nocheck>, ros-kilted-ament-lint-common <!nocheck>, ros-kilted-pal-statistics-msgs, ros-kilted-rclcpp, ros-kilted-rclcpp-lifecycle, ros-kilted-rclpy, ros-kilted-ros-workspace
+Homepage: https://github.com/pal-robotics/pal_statistics
+Standards-Version: 3.9.2
+
+Package: ros-kilted-pal-statistics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-dev, ros-kilted-pal-statistics-msgs, ros-kilted-rclcpp, ros-kilted-rclcpp-lifecycle, ros-kilted-rclpy, ros-kilted-ros-workspace
+Description: The pal_statistics package
