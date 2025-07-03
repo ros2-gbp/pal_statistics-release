@@ -1,0 +1,12 @@
+Source: ros-jazzy-pal-statistics
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-dev, ros-jazzy-ament-cmake-auto, ros-jazzy-ament-cmake-gmock <!nocheck>, ros-jazzy-ament-cmake-gtest <!nocheck>, ros-jazzy-ament-cmake-pytest <!nocheck>, ros-jazzy-ament-cmake-python, ros-jazzy-ament-lint-auto <!nocheck>, ros-jazzy-ament-lint-common <!nocheck>, ros-jazzy-pal-statistics-msgs, ros-jazzy-rclcpp, ros-jazzy-rclcpp-lifecycle, ros-jazzy-rclpy, ros-jazzy-ros-workspace
+Homepage: https://github.com/pal-robotics/pal_statistics
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-pal-statistics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-dev, ros-jazzy-pal-statistics-msgs, ros-jazzy-rclcpp, ros-jazzy-rclcpp-lifecycle, ros-jazzy-rclpy, ros-jazzy-ros-workspace
+Description: The pal_statistics package
