@@ -1,3 +1,32 @@
+## pal_statistics (rolling) - 2.6.4-1
+
+The packages in the `pal_statistics` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --track rolling --rosdistro rolling pal_statistics` on `Thu, 03 Jul 2025 07:58:04 -0000`
+
+These packages were released:
+- `pal_statistics`
+- `pal_statistics_msgs`
+
+These packages were explicitly ignored:
+- `pal_carbon_collector`
+- `pal_statsd_collector`
+
+Version of package(s) in repository `pal_statistics`:
+
+- upstream repository: https://github.com/pal-robotics/pal_statistics.git
+- release repository: https://github.com/ros2-gbp/pal_statistics-release.git
+- rosdistro version: `2.6.3-1`
+- old version: `2.6.3-1`
+- new version: `2.6.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## pal_statistics (kilted) - 2.6.3-1
 
 The packages in the `pal_statistics` repository were released into the `kilted` distro by running `/usr/local/bin/bloom-release --rosdistro kilted --track kilted pal_statistics -y` on `Wed, 25 Jun 2025 10:04:42 -0000`
