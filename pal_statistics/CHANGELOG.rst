@@ -2,6 +2,36 @@
 Changelog for package pal_statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.7.0 (2025-09-17)
+------------------
+
+2.6.5 (2025-09-17)
+------------------
+* Fix ament_auto warning about headers install destination
+* Contributors: Noel Jimenez
+
+2.6.4 (2025-07-02)
+------------------
+* Fix windows build (#18)
+  * Export symbols
+  * Fix typo
+  * Try <> instead
+  * Link against Boost::boost
+  * Revert "Try <> instead"
+  This reverts commit 586684f9871539fabbb675b71a9fd20b318cf1e8.
+  * Update pal_statistics/CMakeLists.txt
+  * link boost only on win32
+  Co-authored-by: Noel Jiménez García <noel.jimenez.gar@gmail.com>
+  ---------
+  Co-authored-by: Noel Jiménez García <noel.jimenez.gar@gmail.com>
+* Fix cmake deprecation (#19)
+  * Fix cmake deprecation
+  cmake version < then 3.10 is deprecated
+  * Remove extra 0 in cmake version
+  ---------
+  Co-authored-by: Noel Jiménez García <noel.jimenez.gar@gmail.com>
+* Contributors: Christoph Fröhlich, mosfet80
+
 2.6.3 (2025-06-12)
 ------------------
 * Extend the possibility to regisiter custom data types
