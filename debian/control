@@ -1,0 +1,12 @@
+Source: ros-lyrical-pal-statistics
+Section: misc
+Priority: optional
+Maintainer: Jordan Palacios <jordan.palacios@pal-robotics.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-dev, ros-lyrical-ament-cmake-auto, ros-lyrical-ament-cmake-gmock <!nocheck>, ros-lyrical-ament-cmake-gtest <!nocheck>, ros-lyrical-ament-cmake-pytest <!nocheck>, ros-lyrical-ament-cmake-python, ros-lyrical-ament-lint-auto <!nocheck>, ros-lyrical-ament-lint-common <!nocheck>, ros-lyrical-pal-statistics-msgs, ros-lyrical-rclcpp, ros-lyrical-rclcpp-lifecycle, ros-lyrical-rclpy, ros-lyrical-ros-workspace
+Homepage: https://github.com/pal-robotics/pal_statistics
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-pal-statistics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-dev, ros-lyrical-pal-statistics-msgs, ros-lyrical-rclcpp, ros-lyrical-rclcpp-lifecycle, ros-lyrical-rclpy, ros-lyrical-ros-workspace
+Description: The pal_statistics package
